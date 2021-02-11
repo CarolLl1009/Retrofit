@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.retrofit.databinding.FragmentFirstBinding
-import com.example.retrofit.model.viewModel.MarsViewModel
+import com.example.retrofit.viewModel.MarsViewModel
 
 class FirstFragment : Fragment() {
     private lateinit var mBinding : FragmentFirstBinding
@@ -27,14 +27,8 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.liveDataFromInternet.observe(viewLifecycleOwner, Observer {
-           it?.let {
-               mBinding.textviewFirst.text = it.toString()
-           }
-        })
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
+
+
     }
 }
